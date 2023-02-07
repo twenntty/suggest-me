@@ -1,5 +1,6 @@
 {
-  "homepage": "https://tonichiga.github.io/suggest-me",
+  "name": "suggest-me",
+  "homepage": "https://tonichiga.github.io/",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
