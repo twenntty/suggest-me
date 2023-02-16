@@ -1,0 +1,46 @@
+.container_menu {
+  width: 424px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding-top: 16px;
+}
+.container_menu > a {
+  text-decoration: none;
+}
+.link_mov {
+  width: 56px;
+  height: 24px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a8aebf;
+}
+
+.link_show {
+  width: 80px;
+  height: 24px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #a8aebf;
+}
+
+.link_suqq {
+  width: 101px;
+  height: 24px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+
+  color: #a8aebf;
+}
