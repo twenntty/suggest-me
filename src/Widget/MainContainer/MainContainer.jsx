@@ -77,7 +77,9 @@ const MainContainer = () => {
       <div className={s.content}>
         <div className={s.content_head}>
           <div className={s.title_wrapper}>
-            <TitleInfo />
+            <div className={s.title_container}>
+              <TitleInfo />
+            </div>
             <div className={s.label_container}>
               <InputRadio />
               <p className={s.label_name}>
