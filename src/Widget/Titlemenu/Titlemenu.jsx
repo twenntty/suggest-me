@@ -1,4 +1,5 @@
 import s from "./Titlemenu.module.scss";
+import arrow from "../../assets/styles/icons/arrow-right.svg";
 
 const Titlemenu = () => {
   return (
@@ -12,7 +13,9 @@ const Titlemenu = () => {
       <a href="/" className={s.link_suqq}>
         Suggest me
       </a>
-      <a href="/" className={s.text_up}></a>
+      <a href="/" className={s.text_up}>
+        <img src={arrow} alt="arrow" />
+      </a>
     </div>
   );
 };

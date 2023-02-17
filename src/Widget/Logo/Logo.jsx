@@ -1,5 +1,5 @@
 import s from "./Logo.module.scss";
-import icon from "../../assets/styles/icons/Vector.svg";
+import icon from "../../assets/styles/icons/icon.svg";
 
 const Logo = () => {
   return (
