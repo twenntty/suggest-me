@@ -10,7 +10,7 @@ import poster6 from "../../assets/styles/images/poster6.png";
 import poster7 from "../../assets/styles/images/poster7.png";
 import poster8 from "../../assets/styles/images/poster8.png";
 import TitleInfo from "../TitleInfo/TitleInfo";
-
+import Button from "../../Components/UI/Button/Button";
 const data = [
   {
     id: 1,
@@ -96,6 +96,10 @@ const MainContainer = () => {
             );
           })}
         </ul>
+        <div className={s.footer_container}>
+          <p className={s.footer_text}>Didin’t find the one you looking for?</p>
+          <Button />
+        </div>
       </div>
     </div>
   );
