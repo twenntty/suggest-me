@@ -12,11 +12,12 @@
 }
 
 .title_wrapper {
-  margin-bottom: 53px;
+  margin-bottom: 45px;
 }
 
 .content_head {
-  margin-bottom: 54px;
+  margin-left: 105px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -29,7 +30,7 @@
   position: absolute;
   width: 108px;
   height: 40px;
-  left: 120px;
+  left: 224px;
   top: 552px;
   padding-top: 24px;
 
@@ -55,4 +56,25 @@
   flex-wrap: wrap;
   padding-top: -152px;
   gap: 30px;
+}
+
+.footer_container {
+  display: flex;
+  padding-top: 106px;
+  padding-left: 650px;
+}
+
+.footer_text {
+  position: absolute;
+  width: 690px;
+  height: 32px;
+  left: 500px;
+  top: 1730px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  color: #767e94;
 }
