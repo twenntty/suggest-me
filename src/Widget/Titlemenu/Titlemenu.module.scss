@@ -13,13 +13,13 @@
   width: 90px;
   height: 24px;
 
-  font-family: "Poppins";
-  font-style: normal;
+  // font-family: "Poppins";
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
 
   letter-spacing: 0.02em;
+  font-family: inherit;
 
   color: #a8aebf;
 }
@@ -27,25 +27,25 @@
 .link_show {
   width: 106px;
   height: 24px;
-  font-family: "Poppins";
-  font-style: normal;
+  // font-family: "Poppins";
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.02em;
   color: #a8aebf;
+  font-family: inherit;
 }
 
 .link_suqq {
-  width: 85px;
+  width: 95px;
   height: 54px;
-  font-family: "Poppins";
-  font-style: normal;
+  // font-family: "Poppins";
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.02em;
   color: #a8aebf;
+  font-family: inherit;
 }
 
 .text_up {

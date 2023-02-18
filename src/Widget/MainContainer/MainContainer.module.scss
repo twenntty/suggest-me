@@ -42,8 +42,9 @@
   height: 40px;
   padding-top: 10%;
   bottom: 70%;
+  font-family: inherit;
 
-  font-family: "Poppins";
+  // font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
@@ -63,13 +64,14 @@
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  padding-top: -152px;
   gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .footer_container {
   display: flex;
-  padding-top: 106px;
+  padding-top: 120px;
   padding-left: 650px;
 }
 
@@ -79,7 +81,8 @@
   height: 32px;
   top: 1730px;
   left: 35%;
-  font-family: "Poppins";
+  font-family: inherit;
+
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
