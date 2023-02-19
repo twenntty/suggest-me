@@ -3,6 +3,7 @@ const TitleInfo = () => {
   return (
     <div className={s.title_header}>
       <h1>Suggest.me</h1>
+      <br />
       <span>
         Discover new and exciting movies with Suggest.me!
         <br />

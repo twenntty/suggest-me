@@ -1,4 +1,4 @@
-import s from "./MainContainer.module.scss";
+import s from "./Home.module.scss";
 import InputRadio from "../../Widget/InputRadio/InputRadio";
 import Card from "../../Widget/Card/Card";
 import poster from "../../assets/styles/images/poster.png";
@@ -71,7 +71,7 @@ const data = [
   },
 ];
 
-const MainContainer = () => {
+const Home = () => {
   return (
     <div className={s.container}>
       <div className={s.content}>
@@ -80,12 +80,12 @@ const MainContainer = () => {
             <div className={s.title_container}>
               <TitleInfo />
             </div>
-          </div>
-          <div className={s.label_container}>
-            <InputRadio />
-            <p className={s.label_name}>
-              Any<span>(120)</span>
-            </p>
+            <div className={s.label_container}>
+              <InputRadio />
+              <p className={s.label_name}>
+                Any<span>(120)</span>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -107,4 +107,4 @@ const MainContainer = () => {
   );
 };
 
-export default MainContainer;
+export default Home;

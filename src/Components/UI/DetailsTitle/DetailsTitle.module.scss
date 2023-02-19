@@ -1,0 +1,15 @@
+.container {
+  padding: 77px 25px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  width: 1017px;
+
+  & > p {
+    text-align: center;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120%;
+    color: #ebeef5;
+  }
+}

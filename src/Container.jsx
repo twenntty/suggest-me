@@ -1,4 +1,6 @@
 import { Header } from "./Widget";
+// import { Details } from "./Pages";
+// import { Home } from "./Pages";
 import MainContainer from "./Widget/MainContainer/MainContainer";
 
 const Container = () => {
@@ -6,6 +8,8 @@ const Container = () => {
     <div className="container">
       <Header />
       <MainContainer />
+      {/* <Home /> */}
+      {/* <Details /> */}
     </div>
   );
 };

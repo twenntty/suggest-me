@@ -13,33 +13,32 @@
 
 .title_wrapper {
   display: flex;
-  align-items: center;
+  margin: 0 auto;
 }
 
 .title_container {
-  margin-left: 112px;
+  margin-right: 95px;
 }
 
 .content_head {
-  margin-bottom: 15px;
+  margin-bottom: 195px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .label_container {
   display: flex;
-  margin-left: 110px;
-  margin-top: 50px;
-  width: 600px;
-  height: 100px;
 }
 .label_name {
   position: absolute;
   width: 108px;
   height: 40px;
-  bottom: 41%;
-  left: 22%;
+  padding-top: 10%;
+  bottom: 70%;
   font-family: inherit;
+
+  // font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
@@ -62,21 +61,19 @@
   gap: 30px;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .footer_container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding-top: 120px;
+  padding-left: 650px;
 }
 
 .footer_text {
   position: absolute;
-  width: 630px;
+  width: 690px;
   height: 32px;
-  bottom: -76%;
+  top: 1730px;
   left: 35%;
   font-family: inherit;
 
