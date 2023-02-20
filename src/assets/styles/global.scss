@@ -1,7 +1,6 @@
-// @import url(./_fonts.scss);
+@import url(./_fonts.scss);
 
 // body {
-//   // font-family: "Poppins", sans-serif;
 // }
 
 // * {
@@ -23,10 +22,10 @@ li {
   list-style: none;
 }
 
-// .container {
-//   background: #121829;
-//   backdrop-filter: blur(20px);
-//   background-image: url(./images/Background.png);
-//   background-size: cover;
-//   height: 1500px;
-// }
+.container {
+  background: #121829;
+  backdrop-filter: blur(20px);
+  background-image: url(./images/Background.png);
+  background-size: cover;
+  height: 1555px;
+}
