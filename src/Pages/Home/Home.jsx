@@ -89,23 +89,26 @@ const MainContainer = () => {
               </p>
             </div>
           </div>
-        </div>
 
-        <ul className={s.list}>
-          {data.map((item) => {
-            return (
-              <li key={item.id}>
-                <Link to={`details/${item.id}`}>
-                  <Card data={item} />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-        <div className={s.footer_container}>
-          <p className={s.footer_text}>Didin’t find the one you looking for?</p>
-          <Button />
+          <ul className={s.list}>
+            {data.map((item) => {
+              return (
+                <li key={item.id}>
+                  <Link to={`details/${item.id}`}>
+                    <Card data={item} />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <div className={s.footer_container}>
+            <p className={s.footer_text}>
+              Didin’t find the one you looking for?
+            </p>
+            <Button />
+          </div>
         </div>
+        l
       </div>
     </div>
   );
