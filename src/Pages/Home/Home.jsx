@@ -11,6 +11,8 @@ import poster7 from "../../assets/styles/images/poster7.png";
 import poster8 from "../../assets/styles/images/poster8.png";
 import TitleInfo from "../../Widget/TitleInfo/TitleInfo";
 import Button from "../../Components/UI/Button/Button";
+import { Link } from "react-router-dom";
+
 const data = [
   {
     id: 1,
@@ -71,7 +73,7 @@ const data = [
   },
 ];
 
-const Home = () => {
+const MainContainer = () => {
   return (
     <div className={s.container}>
       <div className={s.content}>
@@ -93,7 +95,9 @@ const Home = () => {
           {data.map((item) => {
             return (
               <li key={item.id}>
-                <Card data={item} />
+                <Link to={`details/${item.id}`}>
+                  <Card data={item} />
+                </Link>
               </li>
             );
           })}
@@ -107,4 +111,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MainContainer;

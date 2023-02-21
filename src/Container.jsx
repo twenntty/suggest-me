@@ -1,5 +1,6 @@
 import { Header } from "./Widget";
-import { Details } from "./Pages";
+// import { Details } from "./Pages";
+import Router from "./Components/Router/Router";
 // import { Home } from "./Pages";
 // import MainContainer from "./Widget/MainContainer/MainContainer";
 
@@ -9,7 +10,8 @@ const Container = () => {
       <Header />
       {/* <MainContainer /> */}
       {/* <Home /> */}
-      <Details />
+      {/* <Details /> */}
+      <Router />
     </div>
   );
 };
