@@ -2,7 +2,7 @@ import s from "./Details.module.scss";
 import MyImage1 from "../../assets/styles/images/details1.jpg";
 import MyImage2 from "../../assets/styles/images/details3.png";
 import DetailsProp from "../../Components/UI/DetailsProp/DetailsProp";
-import Rate from "../../Components/UI/Rate/Rate";
+import RateDetails from "../../Components/UI/RateDetails/RateDetails";
 import { useParams } from "react-router-dom";
 import { useMemo, useState } from "react";
 
@@ -87,7 +87,7 @@ const Details = () => {
           </p>
 
           <div className={s.prop_list}>
-            <Rate rate={8.3} />
+            <RateDetails rate={8.3} />
             <br />
             <br />
             <br />

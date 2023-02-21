@@ -94,7 +94,7 @@ const MainContainer = () => {
             {data.map((item) => {
               return (
                 <li key={item.id}>
-                  <Link to={`details/${item.id}`}>
+                  <Link className={s.link_card} to={`details/${item.id}`}>
                     <Card data={item} />
                   </Link>
                 </li>
