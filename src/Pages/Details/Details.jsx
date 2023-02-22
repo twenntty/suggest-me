@@ -1,4 +1,5 @@
 import s from "./Details.module.scss";
+import { DetailsTitle } from "../../Components/UI";
 import MyImage1 from "../../assets/styles/images/details1.jpg";
 import MyImage2 from "../../assets/styles/images/details3.png";
 import DetailsProp from "../../Components/UI/DetailsProp/DetailsProp";
@@ -106,23 +107,18 @@ const Details = () => {
 
   return (
     <div className={s.details_container}>
+      <DetailsTitle title={movie.title} backdrop={movie.backdrop} />
       <div className={s.content}>
         <div className={s.container_img}>
-          <img src={MyImage1} alt="poster" />
+          <img src={movie.poster} alt="poster" />
           <div className={s.title_svg}></div>
         </div>
         <div className={s.container_poster}>
           <img src={MyImage2} alt="porster" />
         </div>
         <div className={s.detail_block}>
-          <p className={s.title}>Part of the journey is the end.</p>
-          <p className={s.description}>
-            After the devastating events of Avengers: Infinity War, the universe
-            is in ruins due to the efforts of the Mad Titan, Thanos. With the
-            help of remaining allies, the Avengers must assemble once more in
-            order to undo Thanos' actions and restore order to the universe once
-            and for all, no matter what consequences may be in store.
-          </p>
+          <p className={s.title}>{movie.tagline}</p>
+          <p className={s.description}>{movie.description}</p>
 
           <div className={s.prop_list}>
             {/* <RateDetails rate={8.3} /> */}
