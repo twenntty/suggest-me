@@ -4,7 +4,9 @@ import icon from "../../assets/styles/icons/icon.svg";
 const Logo = () => {
   return (
     <div className={s.logo_container}>
-      <img src={icon} alt="Logo" />
+      <a href="/">
+        <img src={icon} alt="Logo" />
+      </a>
     </div>
   );
 };
