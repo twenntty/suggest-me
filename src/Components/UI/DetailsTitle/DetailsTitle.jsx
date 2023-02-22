@@ -1,9 +1,11 @@
 import s from "./DetailsTitle.module.scss";
 
-const DetailsTitle = () => {
+const DetailsTitle = ({ title, backdrop }) => {
   return (
     <div className={s.container}>
-      <p>Once Upon a Time in Hollywood</p>
+      <p>{title}</p>
+
+      <img src={backdrop} alt="poster" />
     </div>
   );
 };
