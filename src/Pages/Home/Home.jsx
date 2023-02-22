@@ -12,6 +12,7 @@ import poster8 from "../../assets/styles/images/poster8.png";
 import TitleInfo from "../../Widget/TitleInfo/TitleInfo";
 import Button from "../../Components/UI/Button/Button";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const data = [
   {
@@ -67,6 +68,7 @@ const data = [
   {
     id: 8,
     title: "Two And a Half Men",
+
     about: "Drama, Action | 2020",
     image: poster8,
     rate: 7,
@@ -74,6 +76,46 @@ const data = [
 ];
 
 const MainContainer = () => {
+  const [movies, setMovies] = useState([]);
+  const [inputValue, setInputValue] = useState("Any");
+
+  const getMovies = async () => {
+    try {
+      const response = await fetch(
+        `https://cogitize-practice-suggest.onrender.com/movie/list`
+      );
+      const data = await response.json();
+
+      setMovies(data);
+    } catch (error) {
+      console.log("Catch error :", error);
+    }
+  };
+
+  const getMoviesForQuery = async (value) => {
+    try {
+      const response = await fetch(
+        `https://cogitize-practice-suggest.onrender.com/movie/list?category=${value}`
+      );
+      const data = await response.json();
+
+      setMovies(data);
+    } catch (error) {
+      console.log("Catch error :", error);
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  const handleInput = (e) => {
+    const value = e.target.id;
+    setInputValue(value);
+
+    getMoviesForQuery(value);
+  };
+
   return (
     <div className={s.container}>
       <div className={s.content}>
@@ -83,7 +125,7 @@ const MainContainer = () => {
               <TitleInfo />
             </div>
             <div className={s.label_container}>
-              <InputRadio />
+              <InputRadio onChange={handleInput} value={inputValue} />
               <p className={s.label_name}>
                 Any<span>(120)</span>
               </p>
