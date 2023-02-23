@@ -47,6 +47,7 @@ const Details = () => {
     <div className={s.details_container}>
       <div className={s.content}>
         <div className={s.container_img}>
+          git checkout main{" "}
           <DetailsTitle
             title={movie.title}
             backdrop={movie.backdrop}
