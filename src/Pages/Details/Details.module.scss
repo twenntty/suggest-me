@@ -85,13 +85,21 @@
   font-size: 20px;
   line-height: 32px;
   color: #8e95a9;
-  margin-bottom: 24px;
-  height: 224px;
+  margin-bottom: 25px;
+  height: max-content;
   font-family: "Poppins", sans-serif;
 }
 
 .prop_list {
   & > div:not(:last-child) {
-    margin-bottom: 24px;
+    margin-bottom: 25px;
   }
+}
+
+.span_elem > [value] {
+  color: red;
+}
+
+.color [value] {
+  color: red;
 }

@@ -39,7 +39,6 @@ const MainContainer = () => {
   const getMoviesForQuery = async (value) => {
     try {
       const response = await fetch(
-        // `https://cogitize-practice-suggest.onrender.com/movie/list?category=${value}`
         `https://cogitize-practice-suggestmovies.onrender.com/movie/list?genre=${value}`
       );
       const data = await response.json();
@@ -80,22 +79,23 @@ const MainContainer = () => {
           <ul className={s.list}>
             {movies.map((item) => {
               return (
-                <li key={item.id}>
-                  <Link className={s.link_card} to={`details/${item.id}`}>
+                <li key={item._id}>
+                  <Link className={s.link_card} to={`details/${item._id}`}>
                     <Card data={item} />
                   </Link>
                 </li>
               );
             })}
+            <div className={s.footer_container}>
+              <div>
+                <p className={s.footer_text}>
+                  Didin’t find the one you looking for?
+                </p>
+              </div>
+              <Button />
+            </div>
           </ul>
-          <div className={s.footer_container}>
-            <p className={s.footer_text}>
-              Didin’t find the one you looking for?
-            </p>
-            <Button />
-          </div>
         </div>
-        l
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const Card = ({ data }) => {
       {/* <img src={data.image} alt="Card" /> */}
       <div className={style.card_footer}>
         <span className={style.card_title}>{data.title}</span>
-        <span className={style.card_about}>{data.about}</span>
+        {/* <span className={style.card_about}>{data.about}</span> */}
       </div>
 
       <div className={style.rate_container}>
