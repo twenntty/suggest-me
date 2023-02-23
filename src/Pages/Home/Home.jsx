@@ -1,14 +1,14 @@
 import s from "./Home.module.scss";
 import InputRadio from "../../Widget/InputRadio/InputRadio";
 import Card from "../../Widget/Card/Card";
-import poster from "../../assets/styles/images/poster.png";
-import poster2 from "../../assets/styles/images/poster2.png";
-import poster3 from "../../assets/styles/images/poster3.png";
-import poster4 from "../../assets/styles/images/poster4.png";
-import poster5 from "../../assets/styles/images/poster5.png";
-import poster6 from "../../assets/styles/images/poster6.png";
-import poster7 from "../../assets/styles/images/poster7.png";
-import poster8 from "../../assets/styles/images/poster8.png";
+// import poster from "../../assets/styles/images/poster.png";
+// import poster2 from "../../assets/styles/images/poster2.png";
+// import poster3 from "../../assets/styles/images/poster3.png";
+// import poster4 from "../../assets/styles/images/poster4.png";
+// import poster5 from "../../assets/styles/images/poster5.png";
+// import poster6 from "../../assets/styles/images/poster6.png";
+// import poster7 from "../../assets/styles/images/poster7.png";
+// import poster8 from "../../assets/styles/images/poster8.png";
 import TitleInfo from "../../Widget/TitleInfo/TitleInfo";
 import Button from "../../Components/UI/Button/Button";
 import { Link } from "react-router-dom";
@@ -133,7 +133,7 @@ const MainContainer = () => {
           </div>
 
           <ul className={s.list}>
-            {data.map((item) => {
+            {movies.map((item) => {
               return (
                 <li key={item.id}>
                   <Link className={s.link_card} to={`details/${item.id}`}>

@@ -11,15 +11,15 @@ import Rate from "../../Components/UI/Rate/Rate";
 const Card = ({ data }) => {
   return (
     <div className={style.card}>
-      {/* <img src={poster} alt="poster" /> */}
-      <img src={data.image} alt="Card" />
+      <img className={style.image} src={data.poster} alt="poster" />
+      {/* <img src={data.image} alt="Card" /> */}
       <div className={style.card_footer}>
         <span className={style.card_title}>{data.title}</span>
         <span className={style.card_about}>{data.about}</span>
       </div>
 
       <div className={style.rate_container}>
-        <Rate rate={data.rate} />
+        <Rate rate={data.rating.toFixed(1)} />
       </div>
     </div>
   );
