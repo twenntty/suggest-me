@@ -14,7 +14,7 @@ const Details = () => {
     const getMovie = async () => {
       try {
         const response = await fetch(
-          `https://cogitize-practice-suggest.onrender.com/movie/${params.id}`
+          `https://cogitize-practice-suggestmovies.onrender.com/movie/${params.id}`
         );
         const data = await response.json();
 
@@ -50,7 +50,11 @@ const Details = () => {
         <div className={s.container_img}>
           {/* <img src={movie.poster} alt="poster" /> */}
           {/* <div className={s.title_svg}></div> */}
-          <DetailsTitle title={movie.title} backdrop={movie.backdrop} />
+          <DetailsTitle
+            title={movie.title}
+            backdrop={movie.backdrop}
+            category={getStringGenres(movie.genres)}
+          />
         </div>
         <div className={s.container_poster}>
           <img src={movie.poster} alt="main" />

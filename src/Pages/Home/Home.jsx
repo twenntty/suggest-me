@@ -14,66 +14,8 @@ import Button from "../../Components/UI/Button/Button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-// const data = [
-//   {
-//     id: 1,
-//     title: "Black Widow",
-//     image: poster,
-//     about: "Drama, Action | 2020",
-//     rate: 6.8,
-//   },
-//   {
-//     id: 2,
-//     title: "Shang Chi",
-//     image: poster2,
-//     about: "Drama, Action | 2020",
-
-//     rate: 7.9,
-//   },
-//   {
-//     id: 3,
-//     title: "Loki",
-//     image: poster3,
-//     rate: 8.4,
-//     about: "Drama, Action | 2020",
-//   },
-//   {
-//     id: 4,
-//     title: "How I Met Your Mother",
-//     image: poster4,
-//     about: "Drama, Action | 2020",
-//     rate: 8.3,
-//   },
-//   {
-//     id: 5,
-//     title: "Money Heist",
-//     about: "Drama, Action | 2020",
-//     image: poster5,
-//     rate: 8.3,
-//   },
-//   {
-//     id: 6,
-//     title: "Friends",
-//     about: "Drama, Action | 2020",
-//     image: poster6,
-//     rate: 8.8,
-//   },
-//   {
-//     id: 7,
-//     title: "The Big Bang Theory",
-//     about: "Drama, Action | 2020",
-//     image: poster7,
-//     rate: 8.1,
-//   },
-//   {
-//     id: 8,
-//     title: "Two And a Half Men",
-
-//     about: "Drama, Action | 2020",
-//     image: poster8,
-//     rate: 7,
-//   },
-// ];
+const API_URL =
+  "https://cogitize-practice-suggestmovies.onrender.com/movie/list?";
 
 const MainContainer = () => {
   const [movies, setMovies] = useState([]);
@@ -81,9 +23,7 @@ const MainContainer = () => {
 
   const getMovies = async () => {
     try {
-      const response = await fetch(
-        `https://cogitize-practice-suggest.onrender.com/movie/list`
-      );
+      const response = await fetch(API_URL);
       const data = await response.json();
 
       setMovies(data);
@@ -92,10 +32,15 @@ const MainContainer = () => {
     }
   };
 
+  useEffect(() => {
+    getMovies();
+  }, []);
+
   const getMoviesForQuery = async (value) => {
     try {
       const response = await fetch(
-        `https://cogitize-practice-suggest.onrender.com/movie/list?category=${value}`
+        // `https://cogitize-practice-suggest.onrender.com/movie/list?category=${value}`
+        `https://cogitize-practice-suggestmovies.onrender.com/movie/list?genre=${value}`
       );
       const data = await response.json();
 
