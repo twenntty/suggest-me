@@ -10,6 +10,20 @@
     padding-right: 125px;
 }
 
+.button {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    width: 163px;
+    height: 56px;
+    background: #7B6EF6;
+    border-radius: 12px;
+}
+
 .main_header {
     & h1 {
         font-weight: 600;

@@ -1,8 +1,8 @@
 import s from "./ButtonMain.module.scss";
 
-const ButtonMain = () => {
+const ButtonMain = ({ handleClick }) => {
     return ( 
-        <button className={s.button}>Suggest more</button>
+        <button onClick={handleClick} className={s.button}>Suggest more</button>
      );
 }
  

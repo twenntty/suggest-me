@@ -44,9 +44,13 @@ const MainContainer = () => {
   const handleInput = (e) => {
     const value = e.target.id;
     setInputValue(value);
-
     getMoviesForQuery(value);
   };
+
+  const handleClick = () => {
+    getMoviesForQuery(inputValue);
+  };
+
 
     return <div className={s.main}>
       <div className={s.content}>
@@ -65,7 +69,7 @@ const MainContainer = () => {
             <div className={s.main_footer}>
                 <div className={s.category_main}>
                     <span className={s.category}>{inputValue}</span>
-                    <span className={s.num_category}>(8)</span>
+                    <span className={s.num_category}>({movies.length})</span>
                 </div>
                 <ul className={s.list}>
                     {movies.map((item) => {
@@ -80,7 +84,7 @@ const MainContainer = () => {
                 </ul>
                 <div className={s.footer_main}>
                     <h3 className={s.footer}>Didin’t find the one you looking for?</h3>
-                    <ButtonMain />
+                    <ButtonMain handleClick={handleClick}/>
                 </div>
             </div>
             </div>
