@@ -12,6 +12,7 @@ const Details = () => {
     const params = useParams();
 
     useEffect (() => {
+      if(!params.id) return
       const getMovie = async () => {
         try {
           const response = await fetch(
