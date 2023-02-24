@@ -1,6 +1,7 @@
 import { Card } from "../";
 import styles from "./Layout.module.scss";
 
+
 const arrayGenerator = (length) => {
   let array = [];
   for (let i = 1; i <= length; i++) {

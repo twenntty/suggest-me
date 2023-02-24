@@ -1,12 +1,13 @@
-import s from "./Rate.module.scss";
-import icon from "../../../assets/styles/icons/star.svg";
+import s from "../Rate/Rate.module.scss";
+import star from "../../../assets/icons/star.svg";
 
-const Rate = ({ rate, value, label }) => {
-  return (
-    <div className={s.rate}>
-      <img src={icon} alt="star" /> <span>{rate}</span>
-    </div>
-  );
-};
-
+const Rate = ({ rate }) => {
+    return (
+        <div className={s.rate}>
+            <img src={star} alt="star" />
+            <span className={s.rating}>{rate}</span>
+        </div>
+    );
+}
+ 
 export default Rate;

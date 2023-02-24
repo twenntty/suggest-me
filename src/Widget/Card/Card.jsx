@@ -1,28 +1,14 @@
 import style from "./Card.module.scss";
 import Rate from "../../Components/UI/Rate/Rate";
-// import poster from "../../assets/styles/images/poster.png";
-
-// const Card = ({ data }) => {
-//   return <div className={style.card}>Card movie number {data}</div>;
-// };
-
-// export default Card;
 
 const Card = ({ data }) => {
-  return (
-    <div className={style.card}>
-      <img className={style.image} src={data.poster} alt="poster" />
-      {/* <img src={data.image} alt="Card" /> */}
-      <div className={style.card_footer}>
-        <span className={style.card_title}>{data.title}</span>
-        {/* <span className={style.card_about}>{data.about}</span> */}
-      </div>
-
-      <div className={style.rate_container}>
-        <Rate rate={data.rating.toFixed(1)} />
-      </div>
-    </div>
-  );
+  return <div className={style.card}>
+            <img src={data.poster} alt="poster" className={style.img} />
+            <span className={style.film_name}>{data.title}</span>
+            <div className={style.rate}>
+              <Rate rate={data.rating.toFixed(1)} />
+            </div>
+  </div>;
 };
 
 export default Card;

@@ -1,26 +1,28 @@
+import BigPoster from "../../Components/UI/BigPoster/BigPoster";
+import NameFilm from "../../Components/UI/NameFilm/NameFilm"
 import s from "./Details.module.scss";
-import { DetailsTitle } from "../../Components/UI";
-import DetailsProp from "../../Components/UI/DetailsProp/DetailsProp";
-import { useParams } from "react-router-dom";
+import DetailsAbout from "../../Components/UI/DetailsAbout/DetailsAbout";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Details = () => {
-  const [movie, setMovie] = useState({});
 
-  const params = useParams();
+    const [movie, setMovie] = useState({});
 
-  useEffect(() => {
-    const getMovie = async () => {
-      try {
-        const response = await fetch(
-          `https://cogitize-practice-suggestmovies.onrender.com/movie/${params.id}`
-        );
-        const data = await response.json();
+    const params = useParams();
 
-        setMovie(data);
-      } catch (error) {
-        console.log(error);
-      }
+    useEffect (() => {
+      const getMovie = async () => {
+        try {
+          const response = await fetch(
+            `https://practice-api-vlasenko-bohdan.onrender.com/movie/${params.id}`
+          );
+          const data = await response.json();
+  
+          setMovie(data);
+        } catch (error) {
+          console.log(error);
+        }
     };
 
     getMovie();
@@ -43,47 +45,30 @@ const Details = () => {
     return string;
   };
 
-  return (
-    <div className={s.details_container}>
-      <div className={s.content}>
-        <div className={s.container_img}>
-          git checkout main{" "}
-          <DetailsTitle
-            title={movie.title}
-            backdrop={movie.backdrop}
-            category={getStringGenres(movie.genres)}
-          />
-        </div>
-        <div className={s.container_poster}>
-          <img src={movie.poster} alt="main" />
-        </div>
-        <div className={s.detail_block}>
-          <p className={s.title}>{movie.tagline}</p>
-          <p className={s.description}>{movie.description}</p>
-          <div className={s.prop_list}>
-            <DetailsProp
-              isRate={true}
-              label={"Rate"}
-              value={movie.rating?.toFixed(1)}
-            />
 
-            <br />
+    return (  
+        <div className={s.main}>
+            <BigPoster backdrop={movie.backdrop} />
+            <div className={s.about_film}>
+                <NameFilm title={movie.title} category={getStringGenres(movie.genres)}/>
+                <div className={s.details}>
+                    <img src={movie.poster} alt="poster" className={s.movie_poster}/>
+                    <div className={s.detail_block}>
+                        <p className={s.title}>{movie.tagline}</p>
+                        <p className={s.description}>{movie.description}</p>
 
-            <DetailsProp label={"Type"} value={movie.type} />
-            <DetailsProp
-              label={"Release Date"}
-              value={getStringDate(movie.date)}
-            />
-            <DetailsProp label={"Run time"} value={movie.runtime} />
-            <DetailsProp
-              label={"Genres"}
-              value={getStringGenres(movie.genres)}
-            />
-          </div>
+                        <div className={s.prop_list}>
+                        <DetailsAbout isRate={true} value={movie.rating?.toFixed(1)} />
+                        <DetailsAbout label={"Type"} value={movie.type} />
+                        <DetailsAbout label={"Release Date"} value={getStringDate(movie.date)} />
+                        <DetailsAbout isRunTime={true} label={"Run time"} value={movie.runtime} />
+                        <DetailsAbout label={"Genres"} value={getStringGenres(movie.genres)} />
+                </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
-};
-
+    );
+}
+ 
 export default Details;
