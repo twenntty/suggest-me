@@ -41,10 +41,6 @@ const MainContainer = () => {
     }
   };
 
-  useEffect(() => {
-    getMovies();
-  }, []);
-
   const handleInput = (e) => {
     const value = e.target.id;
     setInputValue(value);
