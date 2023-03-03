@@ -5,7 +5,7 @@ import Card from "../../Widget/Card/Card";
 import InputRadio from "../../Widget/InputRadio/InputRadio";
 import s from "./Home.module.scss";
 
-const API_URL = "https://practice-api-vlasenko-bohdan.onrender.com/movie/list";
+const API_URL = "https://practice-api-vlasenko-bohdan.onrender.com";
 
 const MainContainer = () => {
 
@@ -14,7 +14,7 @@ const MainContainer = () => {
 
   const getMovies = async () => {
     try {
-      const response = await fetch(API_URL);
+      const response = await fetch(`${API_URL}/movie/list`);
       const data = await response.json();
       setMovies(data);
     } catch (error) {
@@ -28,10 +28,10 @@ const MainContainer = () => {
 
 
 
-  const getMoviesForQuery = async (value) => {
+  const getMoviesForQuery = async (value, manual = false) => {
     try {
       const response = await fetch(
-        `https://practice-api-vlasenko-bohdan.onrender.com/movie/list?genre=${value}`
+        `${API_URL}/movie/list?genre=${value}&manual=${manual}`
       );
       const data = await response.json();
 
@@ -48,7 +48,8 @@ const MainContainer = () => {
   };
 
   const handleClick = () => {
-    getMoviesForQuery(inputValue);
+    const manual = true;
+    getMoviesForQuery(inputValue, manual);
   };
 
 
