@@ -1,6 +1,12 @@
+import { useEffect } from "react";
 import s from "./Dashboard.module.scss";
 
+
 const Dashboard = () => {
+    useEffect(() => {
+        document.title = 'Dashboard | Suggest.me';
+      }, []);
+
     return ( 
         <div className={s.main_container}>
             <div className={s.total_suggested}>

@@ -23,6 +23,7 @@ const MainContainer = () => {
   }
 
   useEffect (() => {
+    document.title = 'Home | Suggest.me';
     getMovies();
   }, []);
 
