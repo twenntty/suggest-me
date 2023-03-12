@@ -17,15 +17,20 @@ const SignIn = () => {
           'Content-Type' : 'application/json'
         }
       });
-      result = await result.json();
-      if(result.accessToken && result.refreshToken) {
-          localStorage.setItem('accessToken', result.accessToken);
-          localStorage.setItem('refreshToken', result.refreshToken);
-          navigate('/dashboard')
+      console.log(result.status)
+      if(result.status === 403)
+      {
+        alert("Invalid email or password");
+      } 
+      else{
+        result = await result.json();
+        if(result.accessToken && result.refreshToken) {
+            localStorage.setItem('accessToken', result.accessToken);
+            localStorage.setItem('refreshToken', result.refreshToken);
+            navigate('/dashboard')
+        }
       }
-      else {
-        alert("Please");
-      }
+      
 
     }
     return ( 
