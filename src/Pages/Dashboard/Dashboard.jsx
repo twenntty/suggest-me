@@ -1,10 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import s from "./Dashboard.module.scss";
 
 
 const Dashboard = () => {
+    const [movies, setMovies] = useState(0);
+    const [tv, setTv] = useState(0);
+    const [sug, setSug] = useState(0);
+    const [man_sug, setMan_sug] = useState(0);
+
+
     useEffect(() => {
         document.title = 'Dashboard | Suggest.me';
+        async function getStats(){
+            let result = await fetch("https://practice-api-vlasenko-bohdan.onrender.com/user/stats", {
+            headers: {
+              'Authorization' : `Bearer ${localStorage.accessToken}`
+            }
+          });
+          console.log(result);
+          result = await result.json();
+          setMovies(result.movies);
+          setTv(result.tv);
+          setSug(result.suggestions);
+          setMan_sug(result.man_suggestions);
+        }
+        getStats();
       }, []);
 
     return ( 
@@ -14,19 +34,19 @@ const Dashboard = () => {
             </div>
             <div className={s.dashboard_main_up_line}>
                 <div className={s.container_movie}>
-                    <h3>93</h3>
+                    <h3>{movies}</h3>
                     <h4>Movies</h4>
                 </div>
                 <div className={s.container_shows}>
-                    <h3>26</h3>
+                    <h3>{tv}</h3>
                     <h4>TV Shows</h4>
                 </div>
                 <div className={s.container_suggest}>
-                    <h3>7</h3>
+                    <h3>{sug}</h3>
                     <h4>Suggestions</h4>
                 </div>
                 <div className={s.container_manual_suggest}>
-                    <h3>3</h3>
+                    <h3>{man_sug}</h3>
                     <h4>Manual Suggestions</h4>
                 </div>
             </div>
