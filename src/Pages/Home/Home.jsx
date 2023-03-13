@@ -11,23 +11,23 @@ const MainContainer = () => {
 
   const [movies, setMovies] = useState([]);
   const [inputValue, setInputValue] = useState("Any");
-  const [headers, setHeaders] = useState({});
+  const [headers, setHeaders, getHeaders] = useState({});
 
   const getMovies = async () => {
-    try {
-      if(localStorage.accessToken) setHeaders({'Authorization': `Bearer ${localStorage.accessToken}`})
-      const response = await fetch(`${API_URL}/movie/list`, { headers });
-      const data = await response.json();
-      setMovies(data);
-    } catch (error) {
-      console.log("Catch error :", error);
+      try {
+        if(localStorage.accessToken) setHeaders({'Authorization': `Bearer ${localStorage.accessToken}`})
+        const response = await fetch(`${API_URL}/movie/list`, { getHeaders });
+        const data = await response.json();
+        setMovies(data);
+      } catch (error) {
+        console.log("Catch error :", error);
+      }
     }
-  }
 
   useEffect (() => {
     document.title = 'Home | Suggest.me';
     getMovies();
-  });
+  }, []);
 
 
 
