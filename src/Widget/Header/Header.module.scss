@@ -27,8 +27,18 @@
     letter-spacing: 0.02em;
     color: #A8AEBF;
     text-decoration: none;
+    margin-right: 48px;
   }
 }
+
+.logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+}
+
 
 .tablets {
 
