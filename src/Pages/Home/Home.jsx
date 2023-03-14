@@ -4,6 +4,7 @@ import ButtonMain from "../../Components/UI/ButtonMain/ButtonMain";
 import Card from "../../Widget/Card/Card";
 import InputRadio from "../../Widget/InputRadio/InputRadio";
 import s from "./Home.module.scss";
+import LoadingFilms from "../../Components/UI/LoadingFilms/LoadingFilms";
 
 const API_URL = "https://practice-api-vlasenko-bohdan.onrender.com";
 
@@ -75,7 +76,7 @@ const MainContainer = () => {
                   
                         <InputRadio onChange={handleInput} value={inputValue} />
                 </div>
-            {isLoading ? (<h1 className={s.loading_header}><br />Getting some movies for you...</h1>)
+            {isLoading ? (<LoadingFilms />)
               :
               (<div className={s.main_footer}>
                 <div className={s.category_main}>
