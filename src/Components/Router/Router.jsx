@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Login from "../../Pages/Login/Login";
 import Error from "../../Pages/Error/Error";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
+import SignUp from "../../Pages/Registration/Registration";
 
 const Router = () => {
     return ( 
@@ -12,6 +13,7 @@ const Router = () => {
             <Route path={"login"} element={<Login />} />
             <Route path={"404"} element={<Error />} />
             <Route path="dashboard" element={<Dashboard />} /> 
+            <Route path="signup" element={<SignUp />} /> 
         </Routes>
      );
 };
