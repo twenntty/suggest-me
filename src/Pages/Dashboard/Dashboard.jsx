@@ -7,11 +7,13 @@ const Dashboard = () => {
     const [tv, setTv] = useState(0);
     const [sug, setSug] = useState(0);
     const [man_sug, setMan_sug] = useState(0);
-
+    const [isLoading, setIsLoading] = useState(false);
+    
 
     useEffect(() => {
         document.title = 'Dashboard | Suggest.me';
         async function getStats(){
+            setIsLoading(true);
             let result = await fetch("https://practice-api-vlasenko-bohdan.onrender.com/user/stats", {
             headers: {
               'Authorization' : `Bearer ${localStorage.accessToken}`
@@ -23,6 +25,7 @@ const Dashboard = () => {
           setTv(result.tv);
           setSug(result.suggestions);
           setMan_sug(result.man_suggestions);
+          setIsLoading(false);
         }
         getStats();
       }, []);
@@ -34,19 +37,19 @@ const Dashboard = () => {
             </div>
             <div className={s.dashboard_main_up_line}>
                 <div className={s.container_movie}>
-                    <h3>{movies}</h3>
+                    <h3>{isLoading ? "Fetching data..." : movies}</h3>
                     <h4>Movies</h4>
                 </div>
                 <div className={s.container_shows}>
-                    <h3>{tv}</h3>
+                    <h3>{isLoading ? "Fetching data..." : tv}</h3>
                     <h4>TV Shows</h4>
                 </div>
                 <div className={s.container_suggest}>
-                    <h3>{sug}</h3>
+                    <h3>{isLoading ? "Fetching data..." : sug}</h3>
                     <h4>Suggestions</h4>
                 </div>
                 <div className={s.container_manual_suggest}>
-                    <h3>{man_sug}</h3>
+                    <h3>{isLoading ? "Fetching data..." : man_sug}</h3>
                     <h4>Manual Suggestions</h4>
                 </div>
             </div>

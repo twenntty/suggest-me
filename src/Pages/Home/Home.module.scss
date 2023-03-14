@@ -46,7 +46,16 @@
     }
 
 }
-
+@keyframes fadeIn {
+    0% { opacity: 0 }
+    50% { opacity: 1 }
+    100% { opacity: 0 }
+}
+.loading_header {
+    text-align: center;
+    color: white;
+    animation: fadeIn 2s infinite;
+}
 .category_main {
     margin-top: 24px;
     margin-bottom: 24px;

@@ -7,9 +7,11 @@ import { useNavigate } from "react-router-dom";
 const SignIn = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const handleLogin = async (e) => {
       e.preventDefault();
+      setIsLoading(true);
       let result = await fetch("https://practice-api-vlasenko-bohdan.onrender.com/user/login", {
         method: 'post',
         body:JSON.stringify({email,password}),
@@ -17,6 +19,7 @@ const SignIn = () => {
           'Content-Type' : 'application/json'
         }
       });
+      setIsLoading(false)
       if(result.status === 403)
       {
         alert("Invalid email or password");
@@ -39,13 +42,13 @@ const SignIn = () => {
             </div>
             <div className={s.email}>
                 <img src={log} alt="login" className={s.svg_mail} />
-                <input type="email" name="email" id="email" placeholder="Email" className={s.email_input} onChange={e => setEmail(e.target.value)} />
+                <input type="email" name="email" id="email" placeholder="Email" className={s.email_input} onChange={e => setEmail(e.target.value)} disabled={isLoading}/>
             </div>
             <div className={s.pass}>
                 <img src={pass} alt="password" className={s.svg_pass} />
-                <input type="password" name="password" id="pass" placeholder="Password" className={s.pass_input} onChange={e => setPassword(e.target.value)} />
+                <input type="password" name="password" id="pass" placeholder="Password" className={s.pass_input} onChange={e => setPassword(e.target.value) } disabled={isLoading}/>
             </div>
-            <button className={s.button_login}>Login</button>
+            <button className={s.button_login} disabled={isLoading}>Login</button>
         </form>
      );
 }
