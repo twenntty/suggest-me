@@ -11,12 +11,12 @@ const MainContainer = () => {
 
   const [movies, setMovies] = useState([]);
   const [inputValue, setInputValue] = useState("Any");
-  const [headers, setHeaders, getHeaders] = useState({});
+  const [headers, setHeaders] = useState({});
 
   const getMovies = async () => {
       try {
         if(localStorage.accessToken) setHeaders({'Authorization': `Bearer ${localStorage.accessToken}`})
-        const response = await fetch(`${API_URL}/movie/list`, { getHeaders });
+        const response = await fetch(`${API_URL}/movie/list`, { headers });
         const data = await response.json();
         setMovies(data);
       } catch (error) {
