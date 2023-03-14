@@ -3,6 +3,7 @@ import log from "../../assets/icons/sms.svg" ;
 import pass from "../../assets/icons/key-square.svg" ;
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
     const [email, setEmail] = useState();
@@ -46,6 +47,13 @@ const SignIn = () => {
                 <input type="password" name="password" id="pass" placeholder="Password" className={s.pass_input} onChange={e => setPassword(e.target.value)} />
             </div>
             <button className={s.button_login}>Login</button>
+
+            <div className={s.dont_have}>
+                <span>Don't have an account?</span>
+                <Link to="/Signup">
+                    <span>Sign Up</span>
+                </Link>
+            </div>
         </form>
      );
 }
