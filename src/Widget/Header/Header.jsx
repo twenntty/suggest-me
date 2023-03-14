@@ -15,11 +15,10 @@ const Header = () => {
                     <Link to="Dashboard">
                       <span>Dashboard</span>
                     </Link>
-                    <a href="#">Suggestions</a>
-                    <a href="#">Add</a>
+                    <a href="/">Suggestions</a>
                   </div>
                   <div className={styles.logout}>
-                      <Link>
+                      <Link >
                         <img src={logout} alt="logout" />
                         <span>Logout</span>
                       </Link>
@@ -32,10 +31,6 @@ const Header = () => {
           <img src={icons} alt="logo"/>
           </Link>
             <div className={styles.menu}>
-              <div className={styles.tablets}>
-                  <a href="#">Movies</a>
-                  <a href="#">TV Shows</a>
-              </div>
                 <div className={styles.suggest}>
                   <Link to="login">
                   <span>Suggest me</span>
