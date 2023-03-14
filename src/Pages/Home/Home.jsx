@@ -12,6 +12,7 @@ const MainContainer = () => {
   const [movies, setMovies] = useState([]);
   const [inputValue, setInputValue] = useState("Any");
   const [headers, setHeaders] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const getMovies = async () => {
       try {
@@ -19,6 +20,7 @@ const MainContainer = () => {
         const response = await fetch(`${API_URL}/movie/list`, { headers });
         const data = await response.json();
         setMovies(data);
+        setIsLoading(false)
       } catch (error) {
         console.log("Catch error :", error);
       }
@@ -26,6 +28,7 @@ const MainContainer = () => {
 
   useEffect (() => {
     document.title = 'Home | Suggest.me';
+    setIsLoading(true);
     getMovies();
   }, []);
 
@@ -33,11 +36,13 @@ const MainContainer = () => {
 
   const getMoviesForQuery = async (value, manual = false) => {
     try {
+      setIsLoading(true);
       if(localStorage.accessToken) setHeaders({'Authorization': `Bearer ${localStorage.accessToken}`})
       const response = await fetch(
         `${API_URL}/movie/list?genre=${value}&manual=${manual}`, { headers });
       const data = await response.json();
       setMovies(data);
+      setIsLoading(false)
     } catch (error) {
       console.log("Catch error :", error);
     }
@@ -66,10 +71,12 @@ const MainContainer = () => {
                         <br />
                         <br />
                         Give it a try and see what the algorithm suggests for you 😉</span>
-
+                  
                         <InputRadio onChange={handleInput} value={inputValue} />
                 </div>
-            <div className={s.main_footer}>
+            {isLoading ? (<h1 className={s.loading_header}><br />Getting some movies for you...</h1>)
+              :
+              (<div className={s.main_footer}>
                 <div className={s.category_main}>
                     <span className={s.category}>{inputValue}</span>
                     <span className={s.num_category}>({movies.length})</span>
@@ -89,7 +96,9 @@ const MainContainer = () => {
                     <h3 className={s.footer}>Didin’t find the one you looking for?</h3>
                     <ButtonMain handleClick={handleClick}/>
                 </div>
-            </div>
+            </div>)
+              }
+            
             </div>
         </div>;
 }
