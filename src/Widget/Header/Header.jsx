@@ -5,13 +5,12 @@ import logout from "../../assets/icons/logout.svg";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  return <header className={styles.header}>
+  if(localStorage.accessToken){
+    return <header className={styles.header}>
             <Link to="/">
             <img src={icons} alt="logo"/>
             </Link>
-
-            if(localStorage.accessToken){
-              <div className={styles.menu}>
+            <div className={styles.menu}>
                   <div className={styles.menu}>
                     <Link to="Dashboard">
                       <span>Dashboard</span>
@@ -26,9 +25,12 @@ const Header = () => {
                       </Link>
                   </div>
               </div>
-            }
-            
-            else {
+              </header>;
+  }
+  return <header className={styles.header}>
+          <Link to="/">
+          <img src={icons} alt="logo"/>
+          </Link>
             <div className={styles.menu}>
               <div className={styles.tablets}>
                   <a href="#">Movies</a>
@@ -41,8 +43,8 @@ const Header = () => {
                   </Link>
                 </div>
             </div> 
-            }
-        </header>;
+            </header>;
+            
 };
 
 export default Header;
