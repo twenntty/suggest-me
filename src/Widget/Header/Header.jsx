@@ -27,6 +27,7 @@ const Header = () => {
                   </div>
               </div>
             }
+            
             else {
             <div className={styles.menu}>
               <div className={styles.tablets}>
