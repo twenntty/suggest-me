@@ -15,13 +15,13 @@ const SignIn = () => {
       setIsLoading(true);
       let result = await fetch("https://practice-api-vlasenko-bohdan.onrender.com/user/login", {
         method: 'post',
-        body:JSON.stringify({email,password}),
+        body:JSON.stringify({email, password}),
         headers: {
           'Content-Type' : 'application/json'
         }
       });
       setIsLoading(false)
-      if(result.status === 403)
+      if(result.status === 500 || result.status === 403)
       {
         alert("Invalid email or password");
       } 
