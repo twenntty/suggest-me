@@ -17,7 +17,6 @@ const SignIn = () => {
           'Content-Type' : 'application/json'
         }
       });
-      console.log(result.status)
       if(result.status === 403)
       {
         alert("Invalid email or password");
