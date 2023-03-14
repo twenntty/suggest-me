@@ -13,7 +13,7 @@ const Router = () => {
             <Route path={"login"} element={<Login />} />
             <Route path={"404"} element={<Error />} />
             <Route path="dashboard" element={<Dashboard />} /> 
-            <Route path="Signup" element={<SignUp />} /> 
+            <Route path="signup" element={<SignUp />} /> 
         </Routes>
      );
 };

@@ -53,7 +53,7 @@ const SignIn = () => {
 
             <div className={s.dont_have}>
                 <span>Don't have an account?</span>
-                <Link to="/Signup">
+                <Link to="/signup">
                     <span>Sign Up</span>
                 </Link>
             </div>
