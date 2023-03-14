@@ -8,12 +8,20 @@ import { useNavigate } from "react-router-dom";
 const Registr = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [rePassword, setRePassword] = useState();
+
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
 
     const handleSignup = async (e) => {
       e.preventDefault();
       setIsLoading(true);
+      if(password !== rePassword) 
+      {
+        setIsLoading(false);
+        alert("Passwords should match!")
+        return;
+      }
       let result = await fetch("https://practice-api-vlasenko-bohdan.onrender.com/user/signup", {
         method: 'post',
         body:JSON.stringify({email, password}),
@@ -50,7 +58,7 @@ const Registr = () => {
             </div>
             <div className={s.pass2}>
                 <img src={pass} alt="password" className={s.svg_pass} />
-                <input type="password" name="re-password" id="re-pass" placeholder="Re-type password" className={s.pass_input} disabled={isLoading}/>
+                <input type="password" name="re-password" id="re-pass" placeholder="Re-type password" className={s.pass_input} onChange={e => setRePassword(e.target.value)} disabled={isLoading}/>
             </div>
             <button className={s.button_signup} disabled={isLoading}>CREATE ACCOUNT</button>
         </form>
