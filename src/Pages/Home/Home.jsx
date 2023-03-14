@@ -17,6 +17,7 @@ const MainContainer = () => {
   const getMovies = async () => {
       try {
         if(localStorage.accessToken) setHeaders({'Authorization': `Bearer ${localStorage.accessToken}`})
+        console.log(headers)
         const response = await fetch(`${API_URL}/movie/list`, { headers });
         const data = await response.json();
         setMovies(data);
