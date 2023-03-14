@@ -11,13 +11,12 @@ const MainContainer = () => {
 
   const [movies, setMovies] = useState([]);
   const [inputValue, setInputValue] = useState("Any");
-  const [headers, setHeaders] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   const getMovies = async () => {
       try {
-        if(localStorage.accessToken) setHeaders({'Authorization': `Bearer ${localStorage.accessToken}`})
-        console.log(headers)
+        const headers = {}
+        if(localStorage.accessToken) headers.Authorization = `Bearer ${localStorage.accessToken}`
         const response = await fetch(`${API_URL}/movie/list`, { headers });
         const data = await response.json();
         setMovies(data);
@@ -38,7 +37,8 @@ const MainContainer = () => {
   const getMoviesForQuery = async (value, manual = false) => {
     try {
       setIsLoading(true);
-      if(localStorage.accessToken) setHeaders({'Authorization': `Bearer ${localStorage.accessToken}`})
+      const headers = {}
+        if(localStorage.accessToken) headers.Authorization = `Bearer ${localStorage.accessToken}`
       const response = await fetch(
         `${API_URL}/movie/list?genre=${value}&manual=${manual}`, { headers });
       const data = await response.json();
