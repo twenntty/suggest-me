@@ -22,7 +22,7 @@
         background: linear-gradient(#20283E, #4d5670);
         background-size: 600% ;
         background-position: 0 50%;
-        animation: anim 10s ease infinite;
+        animation: fade 2s ease infinite;
         border-radius: 8px;
         width: 266px;
         height: 400px;
@@ -46,7 +46,7 @@
         background: linear-gradient(#20283E, #4d5670);
         background-size: 600% ;
         background-position: 0 50%;
-        animation: anim 10s ease infinite;
+        animation: fade 2s ease infinite;
         border-radius: 8px;
     }
 
@@ -62,7 +62,7 @@
         background: linear-gradient(#20283E, #4d5670);
         background-size: 600% ;
         background-position: 0 50%;
-        animation: anim 2s ease infinite;
+        animation: fade 2s ease infinite;
         border-radius: 8px;
         margin-right: 8px;
     }
@@ -73,11 +73,17 @@
         background: linear-gradient(#20283E, #4d5670);
         background-size: 600% ;
         background-position: 0 50%;
-        animation: anim 10s ease infinite;
+        animation: fade 2s ease infinite;
         border-radius: 8px;
     }
 }
-
+@keyframes fade {
+    0% { opacity: 0 }
+    5% { opacity: 0 }
+    50% { opacity: 0.8 }
+    95% { opacity: 0 }
+    100% { opacity: 0 }
+}
 @keyframes anim {
     0% {
         background-position: 80% 0%;
