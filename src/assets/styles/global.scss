@@ -25,7 +25,6 @@ li {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    align-content: center;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -33,4 +32,10 @@ li {
 
 a {
     text-decoration: none;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 730px)  { 
+    .container {
+        align-items: unset;
+    }
 }
