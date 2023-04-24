@@ -19,7 +19,7 @@ const Registr = () => {
       if(password !== rePassword) 
       {
         setIsLoading(false);
-        alert("Passwords should match!")
+        alert("Passwords must match!")
         return;
       }
       let result = await fetch("https://practice-api-vlasenko-bohdan.onrender.com/user/signup", {
