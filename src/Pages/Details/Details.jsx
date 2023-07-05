@@ -4,6 +4,7 @@ import s from "./Details.module.scss";
 import DetailsAbout from "../../Components/UI/DetailsAbout/DetailsAbout";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import getMovieById from "../../services/getMovieById";
 
 const Details = () => {
 
@@ -12,12 +13,10 @@ const Details = () => {
     const params = useParams();
 
     useEffect (() => {
-      if(!params.id) return
+      if(!params.id) return;
       const getMovie = async () => {
         try {
-          const response = await fetch(
-            `https://practice-api-vlasenko-bohdan.onrender.com/movie/${params.id}`
-          );
+          const response = await getMovieById(params.id);
           const data = await response.json();
   
           setMovie(data);

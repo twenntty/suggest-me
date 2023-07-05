@@ -4,6 +4,7 @@ import pass from "../../assets/icons/key-square.svg" ;
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import login from "../../services/login";
 
 const SignIn = () => {
     const [email, setEmail] = useState();
@@ -13,13 +14,7 @@ const SignIn = () => {
     const handleLogin = async (e) => {
       e.preventDefault();
       setIsLoading(true);
-      let result = await fetch("https://practice-api-vlasenko-bohdan.onrender.com/user/login", {
-        method: 'post',
-        body:JSON.stringify({email, password}),
-        headers: {
-          'Content-Type' : 'application/json'
-        }
-      });
+      let result = await login(email, password);
       setIsLoading(false)
       if(result.status === 500 || result.status === 403)
       {

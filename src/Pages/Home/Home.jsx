@@ -5,8 +5,10 @@ import Card from "../../Widget/Card/Card";
 import InputRadio from "../../Widget/InputRadio/InputRadio";
 import s from "./Home.module.scss";
 import LoadingFilms from "../../Components/UI/LoadingFilms/LoadingFilms";
+import getMoviesFromApi from "../../services/getMoviesFromApi";
+import getNewTokens from "../../services/getNewTokens";
+import getMoviesForQueryFromApi from "../../services/getMoviesForQueryFromApi";
 
-const API_URL = "https://practice-api-vlasenko-bohdan.onrender.com";
 
 const MainContainer = () => {
 
@@ -16,9 +18,14 @@ const MainContainer = () => {
 
   const getMovies = async () => {
       try {
-        const headers = {}
-        if(localStorage.accessToken) headers.Authorization = `Bearer ${localStorage.accessToken}`
-        const response = await fetch(`${API_URL}/movie/list`, { headers });
+        let response = await getMoviesFromApi();
+        if (response.status === 403) {
+          if (await getNewTokens())
+            response = await getMoviesFromApi();
+          else {
+            return localStorage.clear();
+          }
+        }
         const data = await response.json();
         setMovies(data);
         setIsLoading(false)
@@ -38,10 +45,14 @@ const MainContainer = () => {
   const getMoviesForQuery = async (value, manual = false) => {
     try {
       setIsLoading(true);
-      const headers = {}
-        if(localStorage.accessToken) headers.Authorization = `Bearer ${localStorage.accessToken}`
-      const response = await fetch(
-        `${API_URL}/movie/list?genre=${value}&manual=${manual}`, { headers });
+      let response = await getMoviesForQueryFromApi(value, manual);
+      if (response.status === 403) {
+        if (await getNewTokens())
+          response = await getMoviesForQueryFromApi(value, manual);
+        else {
+          return localStorage.clear();
+        }
+      }
       const data = await response.json();
       setMovies(data);
       setIsLoading(false)
