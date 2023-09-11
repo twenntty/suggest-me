@@ -28,9 +28,9 @@ const Registr = () => {
       alert("Something went wrong.");
     } else {
       response = await response.json();
-      if (response.accessToken && response.refreshToken) {
-        localStorage.setItem("accessToken", response.accessToken);
-        localStorage.setItem("refreshToken", response.refreshToken);
+      if (response.access_token && response.refresh_token) {
+        localStorage.setItem("accessToken", response.access_token);
+        localStorage.setItem("refreshToken", response.refresh_token);
         navigate("/dashboard");
       }
     }

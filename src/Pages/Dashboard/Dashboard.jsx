@@ -25,7 +25,7 @@ const Dashboard = () => {
       }
       response = await response.json();
       setMovies(response.movies);
-      setTv(response.tv);
+      setTv(response.tv_shows);
       setSug(response.suggestions);
       setMan_sug(response.man_suggestions);
       setIsLoading(false);

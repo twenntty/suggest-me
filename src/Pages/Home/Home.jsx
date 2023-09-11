@@ -27,7 +27,6 @@ const MainContainer = () => {
           }
         }
         const data = await response.json();
-        console.log(data)
         setMovies(data);
         setIsLoading(false)
       } catch (error) {

@@ -22,9 +22,9 @@ const SignIn = () => {
       } 
       else{
         result = await result.json();
-        if(result.accessToken && result.refreshToken) {
-            localStorage.setItem('accessToken', result.accessToken);
-            localStorage.setItem('refreshToken', result.refreshToken);
+        if(result.access_token && result.refresh_token) {
+            localStorage.setItem('accessToken', result.access_token);
+            localStorage.setItem('refreshToken', result.refresh_token);
             navigate('/dashboard')
         }
       }
