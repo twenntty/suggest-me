@@ -1,5 +1,5 @@
 export default async function logout() {
-    let result = await fetch("https://practice-api-vlasenko-bohdan.onrender.com/user/logout", {
+    let result = await fetch(`${process.env.REACT_APP_API_URL}/user/logout`, {
         method: 'delete',
         body: JSON.stringify({ refreshToken: localStorage.refreshToken }),
         headers: {

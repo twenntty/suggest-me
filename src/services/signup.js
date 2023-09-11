@@ -1,6 +1,6 @@
 export default async function signup(email, password) {
     let result = await fetch(
-        "https://practice-api-vlasenko-bohdan.onrender.com/user/signup",
+        `${process.env.REACT_APP_API_URL}/user/signup`,
         {
           method: "post",
           body: JSON.stringify({ email, password }),

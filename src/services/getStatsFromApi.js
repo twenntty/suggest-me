@@ -1,6 +1,6 @@
 export default async function getStatsFromApi() {
   let result = await fetch(
-    "https://practice-api-vlasenko-bohdan.onrender.com/user/stats",
+    `${process.env.REACT_APP_API_URL}/user/stats`,
     {
       headers: {
         Authorization: `Bearer ${localStorage.accessToken}`,
