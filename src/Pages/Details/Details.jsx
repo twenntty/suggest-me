@@ -29,7 +29,7 @@ const Details = () => {
   }, [params]);
 
   const getStringGenres = () => {
-    return movie.genres?.map((genre) => genre.name).join(", ");
+    return movie.genres?.map((genre) => genre).join(", ");
   };
 
   const getStringDate = (movieDate) => {

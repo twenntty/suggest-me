@@ -27,6 +27,7 @@ const MainContainer = () => {
           }
         }
         const data = await response.json();
+        console.log(data)
         setMovies(data);
         setIsLoading(false)
       } catch (error) {
@@ -97,8 +98,8 @@ const MainContainer = () => {
                 <ul className={s.list}>
                     {movies.map((item) => {
                         return (
-                        <li key={item._id}>
-                          <Link to={`details/${item._id}`}>
+                        <li key={item.id}>
+                          <Link to={`details/${item.id}`}>
                             <Card data={item} />
                             </Link>
                         </li>

@@ -1,6 +1,6 @@
 export default async function signup(email, password) {
     let result = await fetch(
-        `${process.env.REACT_APP_API_URL}/user/signup`,
+        `${process.env.REACT_APP_API_URL}/auth/signup`,
         {
           method: "post",
           body: JSON.stringify({ email, password }),

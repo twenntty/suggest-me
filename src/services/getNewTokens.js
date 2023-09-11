@@ -1,5 +1,5 @@
 export default async function getNewTokens() {
-    let resCheckToken = await fetch(`${process.env.REACT_APP_API_URL}/user/token`, {
+    let resCheckToken = await fetch(`${process.env.REACT_APP_API_URL}/auth/tokens`, {
         method: "post",
         body: JSON.stringify({ token: localStorage.refreshToken }),
         headers: {
