@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import s from "./Dashboard.module.scss";
 import getStatsFromApi from "../../services/getStatsFromApi";
 import getNewTokens from "../../services/getNewTokens";
@@ -10,17 +10,19 @@ const Dashboard = () => {
   const [sug, setSug] = useState(0);
   const [man_sug, setMan_sug] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     document.title = "Dashboard | Suggest.me";
     async function getStats() {
       setIsLoading(true);
       let response = await getStatsFromApi();
-      if (response.status === 403) {
+      if (response.status === 401) {
         if (await getNewTokens())
           response = await getStatsFromApi();
         else {
-          return localStorage.clear();
+          localStorage.clear();
+          return navigate('/')
         }
       }
       response = await response.json();

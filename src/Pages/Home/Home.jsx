@@ -18,8 +18,9 @@ const MainContainer = () => {
 
   const getMovies = async () => {
       try {
+        setIsLoading(true);
         let response = await getMoviesFromApi();
-        if (response.status === 403) {
+        if (response.status === 401) {
           if (await getNewTokens())
             response = await getMoviesFromApi();
           else {
@@ -28,6 +29,7 @@ const MainContainer = () => {
         }
         const data = await response.json();
         setMovies(data);
+       
         setIsLoading(false)
       } catch (error) {
         console.log("Catch error :", error);
@@ -36,7 +38,6 @@ const MainContainer = () => {
 
   useEffect (() => {
     document.title = 'Home | Suggest.me';
-    setIsLoading(true);
     getMovies();
   }, []);
 
@@ -46,7 +47,7 @@ const MainContainer = () => {
     try {
       setIsLoading(true);
       let response = await getMoviesForQueryFromApi(value, manual);
-      if (response.status === 403) {
+      if (response.status === 401) {
         if (await getNewTokens())
           response = await getMoviesForQueryFromApi(value, manual);
         else {
