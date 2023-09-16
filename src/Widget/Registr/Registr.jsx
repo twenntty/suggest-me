@@ -23,7 +23,7 @@ const Registr = () => {
     }
     let response = await signup(email, password);
     setIsLoading(false);
-    if (response.status === 400) alert('User with this email elready exists!');
+    if (response.status === 400) alert("User with this email elready exists!");
     else if (response.status === 500 || response.status === 403) {
       alert("Something went wrong.");
     } else {
