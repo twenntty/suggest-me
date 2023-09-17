@@ -42,3 +42,17 @@
     align-items: center;
   }
 
+  @media only screen and (min-width: 375px) and (max-width: 730px)  { 
+    .content {
+      flex-direction: column;
+    }
+
+    .input {
+      height: max-content;
+    }
+
+    label { 
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+  }

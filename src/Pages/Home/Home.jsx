@@ -4,25 +4,40 @@ import ButtonMain from "../../Components/UI/ButtonMain/ButtonMain";
 import Card from "../../Widget/Card/Card";
 import InputRadio from "../../Widget/InputRadio/InputRadio";
 import s from "./Home.module.scss";
+import LoadingFilms from "../../Components/UI/LoadingFilms/LoadingFilms";
+import getMoviesFromApi from "../../services/getMoviesFromApi";
+import getNewTokens from "../../services/getNewTokens";
+import getMoviesForQueryFromApi from "../../services/getMoviesForQueryFromApi";
 
-const API_URL = "https://practice-api-vlasenko-bohdan.onrender.com";
 
 const MainContainer = () => {
 
   const [movies, setMovies] = useState([]);
   const [inputValue, setInputValue] = useState("Any");
+  const [isLoading, setIsLoading] = useState(false);
 
   const getMovies = async () => {
-    try {
-      const response = await fetch(`${API_URL}/movie/list`);
-      const data = await response.json();
-      setMovies(data);
-    } catch (error) {
-      console.log("Catch error :", error);
+      try {
+        setIsLoading(true);
+        let response = await getMoviesFromApi();
+        if (response.status === 401) {
+          if (await getNewTokens())
+            response = await getMoviesFromApi();
+          else {
+            return localStorage.clear();
+          }
+        }
+        const data = await response.json();
+        setMovies(data);
+       
+        setIsLoading(false)
+      } catch (error) {
+        console.log("Catch error :", error);
+      }
     }
-  }
 
   useEffect (() => {
+    document.title = 'Home | Suggest.me';
     getMovies();
   }, []);
 
@@ -30,12 +45,18 @@ const MainContainer = () => {
 
   const getMoviesForQuery = async (value, manual = false) => {
     try {
-      const response = await fetch(
-        `${API_URL}/movie/list?genre=${value}&manual=${manual}`
-      );
+      setIsLoading(true);
+      let response = await getMoviesForQueryFromApi(value, manual);
+      if (response.status === 401) {
+        if (await getNewTokens())
+          response = await getMoviesForQueryFromApi(value, manual);
+        else {
+          return localStorage.clear();
+        }
+      }
       const data = await response.json();
-
       setMovies(data);
+      setIsLoading(false)
     } catch (error) {
       console.log("Catch error :", error);
     }
@@ -64,10 +85,12 @@ const MainContainer = () => {
                         <br />
                         <br />
                         Give it a try and see what the algorithm suggests for you 😉</span>
-
+                  
                         <InputRadio onChange={handleInput} value={inputValue} />
                 </div>
-            <div className={s.main_footer}>
+            {isLoading ? (<LoadingFilms />)
+              :
+              (<div className={s.main_footer}>
                 <div className={s.category_main}>
                     <span className={s.category}>{inputValue}</span>
                     <span className={s.num_category}>({movies.length})</span>
@@ -75,8 +98,8 @@ const MainContainer = () => {
                 <ul className={s.list}>
                     {movies.map((item) => {
                         return (
-                        <li key={item._id}>
-                          <Link to={`details/${item._id}`}>
+                        <li key={item.id}>
+                          <Link to={`details/${item.id}`}>
                             <Card data={item} />
                             </Link>
                         </li>
@@ -87,7 +110,9 @@ const MainContainer = () => {
                     <h3 className={s.footer}>Didin’t find the one you looking for?</h3>
                     <ButtonMain handleClick={handleClick}/>
                 </div>
-            </div>
+            </div>)
+              }
+            
             </div>
         </div>;
 }

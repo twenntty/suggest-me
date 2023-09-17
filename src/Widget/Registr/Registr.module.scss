@@ -1,9 +1,9 @@
-.form_login {
+.form_signup {
     width: 486px;
     margin-left: 126px;
 }
 
-.span_login {
+.span_signup {
     font-weight: 600;
     font-size: 64px;
     color: #C3C8D4;
@@ -11,7 +11,7 @@
     user-select: none;
 }
 
-.button_login {
+.button_signup {
     width: 486px;
     height: 56px;
     background-color: #7B6EF6;
@@ -61,7 +61,7 @@
     display: flex;
     align-items: center;
     background: rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
+    margin-bottom: 16px;
 
     & .svg_pass {
         padding-top: 20px;
@@ -84,11 +84,32 @@
     }
 }
 
-.dont_have {
-    margin-top: 16px;
+.pass2 {
+    width: auto;
+    border: 1px solid #323B54;
+    border-radius: 12px;
     display: flex;
-    justify-content: center;
-    & span {
-        margin-right: 5px;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+
+    & .svg_pass {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 16px;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    & .pass_input {
+        margin-right: 20px;
+        background: none;
+        border: none;
+        color: #475069;
+        font-size: 14px;
+        outline: none;
+        width: 400px;
+        height: 30px;
     }
 }
