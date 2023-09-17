@@ -13,7 +13,9 @@ const SignIn = () => {
   const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
+
     setIsLoading(true);
+
     let result = await login(email, password);
     setIsLoading(false);
     if (result.status === 500) {
